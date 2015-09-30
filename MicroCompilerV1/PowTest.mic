@@ -1,0 +1,6 @@
+program PowTest begin
+    x := 2;
+    y := 31;
+    z := x ** y;
+    write(z);
+end;

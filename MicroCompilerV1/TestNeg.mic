@@ -1,0 +1,6 @@
+program TestNeg begin
+        x := 5;
+        y := -x;
+        z := ~x;
+        write(y, z);
+end;

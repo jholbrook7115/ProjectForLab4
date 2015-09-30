@@ -80,7 +80,7 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         il.addInstruction("istore", target);
         return il;
     }
-    
+
     @Override
     public InstructionList visitArithop(ArithopContext ctx) {
         InstructionList il = cg.newInstructionList();
@@ -89,21 +89,32 @@ public class CompileVisitor extends MicroBaseVisitor<InstructionList> {
         il.addInstruction("op", ctx.op.getText(), "int");
         return il;
     }
-    
+
     @Override
-    public InstructionList visitUnaryop(UnaryopContext ctx){
+    public InstructionList visitUnaryop(UnaryopContext ctx) {
         InstructionList il = cg.newInstructionList();
         il.append(visit(ctx.expr()));
-        il.addInstruction("op", ctx.op.getText(), "int");
+        if (ctx.op.getText().equals("~")) {
+            il.addInstruction("iconst_m1");
+            il.addInstruction("xor", "int");
+        } else if (ctx.op.getText().equals("-")) {
+            il.addInstruction("neg", "int");
+        }
         return il;
     }
-    
+
     @Override
     public InstructionList visitPowerop(PoweropContext ctx){
         InstructionList il = cg.newInstructionList();
         il.append(visit(ctx.expr(0)));
+        il.addInstruction("op", "int", "double");
         il.append(visit(ctx.expr(1)));
-        il.addInstruction("op", ctx.getText(), "int");
+        il.addInstruction("cast", "int", "double");
+
+        il.addInstruction("invokestatic", "java/lang/Math.pow", "double", "double", "double");
+
+        il.addInstruction("cast", "double", "int");
+        
         return il;
     }
              

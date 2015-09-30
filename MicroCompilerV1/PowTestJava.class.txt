@@ -1,0 +1,81 @@
+Classfile /home/jefferson/NetBeansProjects/ProjectForLab4/MicroCompilerV1/PowTestJava.class
+  Last modified Sep 30, 2015; size 462 bytes
+  MD5 checksum c024aeb1c4935ac22305ca909ff4a4f4
+  Compiled from "PowTestJava.java"
+public class PowTestJava
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #6.#15         // java/lang/Object."<init>":()V
+   #2 = Methodref          #16.#17        // java/lang/Math.pow:(DD)D
+   #3 = Fieldref           #18.#19        // java/lang/System.out:Ljava/io/PrintStream;
+   #4 = Methodref          #20.#21        // java/io/PrintStream.println:(I)V
+   #5 = Class              #22            // PowTestJava
+   #6 = Class              #23            // java/lang/Object
+   #7 = Utf8               <init>
+   #8 = Utf8               ()V
+   #9 = Utf8               Code
+  #10 = Utf8               LineNumberTable
+  #11 = Utf8               main
+  #12 = Utf8               ([Ljava/lang/String;)V
+  #13 = Utf8               SourceFile
+  #14 = Utf8               PowTestJava.java
+  #15 = NameAndType        #7:#8          // "<init>":()V
+  #16 = Class              #24            // java/lang/Math
+  #17 = NameAndType        #25:#26        // pow:(DD)D
+  #18 = Class              #27            // java/lang/System
+  #19 = NameAndType        #28:#29        // out:Ljava/io/PrintStream;
+  #20 = Class              #30            // java/io/PrintStream
+  #21 = NameAndType        #31:#32        // println:(I)V
+  #22 = Utf8               PowTestJava
+  #23 = Utf8               java/lang/Object
+  #24 = Utf8               java/lang/Math
+  #25 = Utf8               pow
+  #26 = Utf8               (DD)D
+  #27 = Utf8               java/lang/System
+  #28 = Utf8               out
+  #29 = Utf8               Ljava/io/PrintStream;
+  #30 = Utf8               java/io/PrintStream
+  #31 = Utf8               println
+  #32 = Utf8               (I)V
+{
+  public PowTestJava();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=4, locals=4, args_size=1
+         0: iconst_2
+         1: istore_1
+         2: bipush        31
+         4: istore_2
+         5: iload_1
+         6: i2d
+         7: iload_2
+         8: i2d
+         9: invokestatic  #2                  // Method java/lang/Math.pow:(DD)D
+        12: d2i
+        13: istore_3
+        14: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        17: iload_1
+        18: invokevirtual #4                  // Method java/io/PrintStream.println:(I)V
+        21: return
+      LineNumberTable:
+        line 3: 0
+        line 4: 2
+        line 5: 5
+        line 6: 14
+        line 7: 21
+}
+SourceFile: "PowTestJava.java"
